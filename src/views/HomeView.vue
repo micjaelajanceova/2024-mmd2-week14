@@ -1,9 +1,14 @@
 <template>
   <main>
     <h1 class="text-3xl font-bold underline">
-
     </h1>
-    <div v-for="portfolioItem in portfolioItems" :key="portfolioItem" class="card">
+    
+    <button @click="selectedCategory = 'web'"> WEB </button>
+    <button @click="selectedCategory = 'photo'"> PHOTO </button>
+    <button @click="selectedCategory = 'video'"> VIdeo </button>
+    <button @click="selectedCategory = ''"> ALL </button>
+    
+    <div v-for="portfolioItem in filteredPortfolioItems" :key="portfolioItem" class="card">
       <h2>{{ portfolioItem.title }}</h2>
       <p>{{ portfolioItem.description }}</p>
       <p>{{ portfolioItem.id }}</p>
@@ -22,39 +27,34 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import getPortfolio from '@/modules/getPortfolio'
+const { portfolioItems } = getPortfolio()
 
-import image1 from '@/assets/test.jpeg'
+let selectedCategory = ref('')
 
-const portfolioItems = ref([
-  {
-    id: 1,
-    title: 'Portfolio Item 1',
-    description: 'This is the first portfolio item',
-    image: image1,
-    category: 'web'
+const filteredPortfolioItems = computed(() => {
+  if (selectedCategory.value == '') {
+    return portfolioItems.value
+  }
+  else {
+    return portfolioItems.value.filter(item => item.category == selectedCategory.value)
+  }
+})
 
-  },
-  {
-    id: 2,
-    title: 'Portfolio Item 2',
-    description: 'This is the second portfolio item',
-    image: 'https://via.placeholder.com/150',
-    link: 'https://www.google.com',
-    category: 'photo'
-  },
-  {
-    id: 3,
-    title: 'Portfolio Item 3',
-    description: 'This is the third portfolio item'
-  },
-  {
-    id: 2,
-    title: 'Portfolio Item 2',
-    description: 'This is the second portfolio item'
-  }  
-])
+//SECOND + ternary operator
+// const filteredPortfolioItems = computed(() => {
+//   const categoryFilter = selectedCategory.value;
 
+//   if (!categoryFilter) {
+//     return portfolioItems.value; // If no category selected, return all items
+//   } else {
+//     return portfolioItems.value.filter(item => item.category === categoryFilter);
+//   }
+
+//   // ternary operator instead of if/else
+//   // return categoryFilter ? portfolioItems.value.filter(item => item.category === categoryFilter) : portfolioItems.value;
+// });
 </script>
 
 <style lang="scss">

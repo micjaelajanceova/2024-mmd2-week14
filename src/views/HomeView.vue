@@ -1,7 +1,6 @@
 <template>
   <main>
     <h1 class="text-3xl font-bold underline">
-
     </h1>
     
     <button @click="selectedCategory = 'web'"> WEB </button>
@@ -28,39 +27,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import getPortfolio from '@/modules/getPortfolio'
+const { portfolioItems } = getPortfolio()
 
-import image1 from '@/assets/test.jpeg'
+let selectedCategory = ref('')
 
-const portfolioItems = ref([
-  {
-    id: 1,
-    title: 'Portfolio Item 1',
-    description: 'This is the first portfolio item',
-    image: image1,
-    category: 'web'
+const filteredPortfolioItems = computed(() => {
+  if (selectedCategory.value == '') {
+    return portfolioItems.value
+  }
+  else {
+    return portfolioItems.value.filter(item => item.category == selectedCategory.value)
+  }
+})
 
-  },
-  {
-    id: 2,
-    title: 'Portfolio Item 2',
-    description: 'This is the second portfolio item',
-    image: 'https://via.placeholder.com/150',
-    link: 'https://www.google.com',
-    category: 'photo'
-  },
-  {
-    id: 3,
-    title: 'Portfolio Item 3',
-    description: 'This is the third portfolio item'
-  },
-  {
-    id: 2,
-    title: 'Portfolio Item 2',
-    description: 'This is the second portfolio item'
-  }  
-])
-
+//   // ternary operator instead of if/else
+//   // return categoryFilter ? portfolioItems.value.filter(item => item.category === categoryFilter) : portfolioItems.value;
+// });
 </script>
 
 <style lang="scss">

@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1 class="text-3xl font-bold underline">
-      Hello there
+
     </h1>
 
     <button @click="selectedCategory = 'web' ">Web</button>
@@ -9,6 +9,9 @@
     <button @click="selectedCategory = '' ">All</button>
 
     <div v-for="portfolioItem in filteredPortfolioItems" :key="portfolioItem" class="card">
+      <router-link :to="`/portfoliodetail/${portfolioItem.id}`">
+        To Go
+      </router-link>
       <h2>{{ portfolioItem.title }}</h2>
       <p>{{ portfolioItem.description }}</p>
       <p>{{ portfolioItem.id }}</p>

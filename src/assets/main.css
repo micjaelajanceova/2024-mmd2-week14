@@ -1,39 +1,215 @@
-@import './base.css';
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+
+*{
+  margin: 0;
+  padding: 0;
+  
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+body{
+  background-color: #b6c5b2;
+  color: #ffffff;
+  
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+#header{
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.container{
+  padding: 10px ;
+}
+
+/*------------home------------*/
+
+.home-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-row h1 {
+  font-family: Impact;
+  font-size: 180px;
+  color: #ffffff;
+}
+
+.home-image {
+  max-width: 700px; 
+}
+
+.home-text {
+  text-align: center;
+  position: relative; 
+  margin: 180px 80px;
+}
+
+.home-text p {
+  font-size: 50px; 
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .home-row {
+    font-size: 4vw;
+  }
+
+  .home-text h1 {
+    font-size: 100px;
+  }
+
+  .home-text  {
+    margin: 0;
+  }
+
+  .home-text p {
+    font-size: 35px;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
+/*------------about------------*/
+#about{
+  padding: 20px 0;
+  margin-top: 40px;
+  color: rgb(255, 255, 255);
+  background-color: #d4e3d0;
+}
+
+.about-row{
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-col-1{
+  flex-basis: 35%;
+}
+
+.about-col-2 h1{
+  font-size: 140px;
+  font-family: Impact;
+}
+
+.about-col-2 p{
+  color: black;
+  margin-bottom: 50px;
+  text-align: justify;
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+.about-col-2 {
+  flex-basis: 60%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn {
+  background-color:white;
+  font-size: 20px;
+  color: #000;
+  padding: 10px 20px; 
+  border-radius: 5px;
+  transition: background 0.5s, transform 0.5s;
+  }
+
+  .btn:hover {
+    background-color: #658876;
+    color: white;
+  }
+
+
+@media screen and (max-width: 768px) {
+  .about-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-col-1, .about-col-2 {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  
+  .about-col-2 h1 {
+    font-size: 90px;
+  }
+}
+
+/*------------skills------------*/
+#skills{
+  padding: 30px 0;
+}
+
+.skills-title{
+  text-align: center;
+  font-family: Impact;
+  font-size: 140px; 
+  color: #ffffff;
+}
+
+.skills-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+  padding: 0 20px;
+}
+.skills-list div{
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 300;
+  transition: background 0.5s, transform 0.5s;
+  text-align: justify;
+  
+}
+
+.skills-list div h2{
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.skills-list div p{
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.skills-list div:hover{
+ background-color: rgb(101, 136, 118);
+ transform: translateY(-10px);
+ color: white;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .skills-title {
+    font-size: 90px;
+  }
+}
+
+
+/*------------contanct------------*/
+.contact-title {
+  margin-top: 80px;
+  text-align: center;
+  font-family: Impact;
+  font-size: 140px; 
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-title {
+    font-size: 90px;
   }
 }

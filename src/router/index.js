@@ -13,37 +13,11 @@ const router = createRouter({
         title: "Home"
       }
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
-      meta: {
-        title: "About"
-      }
-    },
-    {
-      path: '/portfolio',
-      name: 'portfolio',
-      component: () => import('../views/PortfoliosView.vue'),
-      meta: {
-        title: "Portfolio Views"
-      }
-    },
-    {
-      path: '/portfoliodetail/:id',
-      name: 'portfoliodetail',
-      component: () => import('../views/PortfolioDetailView.vue'),
-      meta: {
-        dynamicTitle: true 
-      }
-    }
+    
   ]
 })
 
-/* router.beforeEach((to, from, next) => {
-  document.title = `KW Portfolio | ${to.meta.title}`
-  next()
-}) */
+
 
 router.beforeEach((to, from, next) => {
   if (to.meta.dynamicTitle) {
@@ -51,11 +25,11 @@ router.beforeEach((to, from, next) => {
       .portfolioItems.value
       .find(item => item.id == to.params.id)
       if(portfolioItem) {
-        document.title = `KW Portfolio | ${portfolioItem.title}`
+        document.title = `MJ Portfolio | ${portfolioItem.title}`
       }
     }
     else {
-      document.title = `KW Portfolio | ${to.meta.title}`
+      document.title = `MJ Portfolio | ${to.meta.title}`
     }
     next()
 })

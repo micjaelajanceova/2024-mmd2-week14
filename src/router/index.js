@@ -30,6 +30,12 @@ const router = createRouter({
       }
     },
     {
+      path: '/todos',
+      name: 'todos',
+      component: () => import('../views/TodosView.vue'),
+
+    },
+    {
       path: '/portfoliodetail/:id',
       name: 'portfoliodetail',
       component: () => import('../views/PortfolioDetailView.vue'),

@@ -43,6 +43,12 @@ const showNavbar = () => {
       </ul>
       <li class="menu-button" @click=showNavbar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
       
+
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/portfolio">Portfolio</RouterLink>
+        <RouterLink to="/todos">Todos</RouterLink>
+
       </nav>
     </div>
   </header>

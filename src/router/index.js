@@ -13,37 +13,7 @@ const router = createRouter({
         title: "Home"
       }
     },
-
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
-      meta: {
-        title: "About"
-      }
-    },
-    {
-      path: '/portfolio',
-      name: 'portfolio',
-      component: () => import('../views/PortfoliosView.vue'),
-      meta: {
-        title: "Portfolio Views"
-      }
-    },
-    {
-      path: '/todos',
-      name: 'todos',
-      component: () => import('../views/TodosView.vue'),
-
-    },
-    {
-      path: '/portfoliodetail/:id',
-      name: 'portfoliodetail',
-      component: () => import('../views/PortfolioDetailView.vue'),
-      meta: {
-        dynamicTitle: true 
-      }
-    }
+    
   ]
 })
 
